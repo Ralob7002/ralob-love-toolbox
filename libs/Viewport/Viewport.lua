@@ -99,7 +99,7 @@ function Viewport:new(width, height, scale_mode, settings)
     obj._need_canvas_update = true
     obj._previous_canvas = nil
 
-    return setmetatable(obj, self)
+    return obj
 end
 
 
