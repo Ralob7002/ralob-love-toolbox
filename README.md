@@ -9,3 +9,4 @@ This repository centralizes utilities, systems, and abstractions created across 
 
 > Not all libraries follow the same level of abstraction — some are simple utilities, others are more complete systems.
 
+- [Viewport](libs/Viewport/README.md) - Virtual resolution and scaling system that keeps rendering consistent across different screen sizes.
