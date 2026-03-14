@@ -99,6 +99,8 @@ function Viewport:new(width, height, scale_mode, settings)
     obj._need_canvas_update = true
     obj._previous_canvas = nil
 
+    obj:updateCanvas()
+
     return obj
 end
 
@@ -106,10 +108,7 @@ end
 --- Opens the Viewport for drawing operations.
 function Viewport:open()
     -- Updates the Viewport canvas if necessary.
-    if self._need_canvas_update then
-        self._canvas = createCanvas(self)
-        self._need_canvas_update = false
-    end
+    self:updateCanvas()
 
     -- Sets the Viewport canvas as the current canvas.
     self._previous_canvas = love.graphics.getCanvas()
@@ -185,6 +184,17 @@ function Viewport:toScreen(x, y)
     px, py = px + canvasX, py + canvasY
 
     return px, py
+end
+
+---| Private Functions
+
+--- Updates the viewport canvas.
+--- @private
+function Viewport:updateCanvas()
+    if self._need_canvas_update then
+        self._canvas = createCanvas(self)
+        self._need_canvas_update = false
+    end
 end
 
 ---| Setters
